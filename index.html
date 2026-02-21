@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vijayaragavan - Java Full Stack Developer | Spring Boot Developer | Problem Solver">
+    <meta name="keywords" content="Java Developer, Spring Boot, Full Stack Developer, Backend Engineer, Problem Solver">
+    <meta name="author" content="Vijayaragavan">
+    <title>Vijayaragavan | Java Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="loader-text">V</span>
+            </div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+            <p class="loader-percentage">0%</p>
+        </div>
+    </div>
+
+    <canvas id="particle-canvas"></canvas>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-text">V</span>
+                <span class="logo-sub">ijay</span>
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#coding" class="nav-link">Coding</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#achievements" class="nav-link">Stats</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+            <a href="assets/Vijayaragavan_Resume.pdf" class="btn btn-resume" download>
+                <span class="btn-text">Resume</span>
+                <span class="btn-icon">↓</span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-particles" id="hero-particles"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-name">Vijayaragavan</h1>
+                <div class="hero-title">
+                    <span class="typing-text">Java Full Stack Developer</span>
+                    <span class="typing-cursor">|</span>
+                </div>
+                <div class="hero-roles">
+                    <span class="role-item">Java Developer</span>
+                    <span class="role-item">Spring Boot Developer</span>
+                    <span class="role-item">Backend Engineer</span>
+                    <span class="role-item">Problem Solver</span>
+                </div>
+                <div class="hero-description">
+                    Passionate about building robust backend systems with Java and creating elegant full-stack solutions. Focused on clean code and efficient algorithms.
+                </div>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <span class="btn-text">View Projects</span>
+                        <span class="btn-icon">→</span>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span class="btn-text">Contact Me</span>
+                    </a>
+                    <a href="assets/Vijayaragavan_Resume.pdf" class="btn btn-resume-hero" download>
+                        <span class="btn-text">Download Resume</span>
+                        <span class="btn-icon">↓</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="profile-container">
+                    <div class="profile-glow"></div>
+                    <div class="profile-frame">
+                        <div class="profile-image">
+                            <div class="profile-placeholder">
+                                <span class="profile-initial">V</span>
+                            </div>
+                        </div>
+                        <div class="profile-rings">
+                            <div class="ring ring-1"></div>
+                            <div class="ring ring-2"></div>
+                            <div class="ring ring-3"></div>
+                        </div>
+                    </div>
+                    <div class="profile-badges">
+                        <div class="badge badge-java">
+                            <span class="badge-icon">☕</span>
+                            <span class="badge-text">Java</span>
+                        </div>
+                        <div class="badge badge-spring">
+                            <span class="badge-icon">🌱</span>
+                            <span class="badge-text">Spring</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span class="scroll-text">Scroll Down</span>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Get To Know Me</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-image-wrapper">
+                        <div class="about-img">
+                            <div class="about-placeholder">
+                                <span class="about-initial">V</span>
+                            </div>
+                        </div>
+                        <div class="about-image-glow"></div>
+                        <div class="about-image-border"></div>
+                    </div>
+                    <div class="about-image-card">
+                        <div class="card-content">
+                            <span class="card-number">90%</span>
+                            <span class="card-label">Java Focus</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3 class="about-heading">Java Full Stack Developer</h3>
+                    <p class="about-description">
+                        I'm a passionate <strong>Java Full Stack Developer</strong> with a strong focus on building scalable backend applications using <strong>Spring Boot</strong> and modern Java technologies. I love solving complex problems and turning ideas into reality through clean, efficient code.
+                    </p>
+                    <p class="about-description">
+                        As a <strong>Computer Science Engineering student</strong>, I'm constantly learning and staying updated with the latest technologies. My goal is to become an expert software engineer specializing in <strong>Java backend development</strong> and create impactful solutions that make a difference.
+                    </p>
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">🎓</span>
+                            <div class="detail-content">
+                                <span class="detail-label">Education</span>
+                                <span class="detail-value">Computer Science Engineering</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🎯</span>
+                            <div class="detail-content">
+                                <span class="detail-label">Focus</span>
+                                <span class="detail-value">Java Backend & Full Stack</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💡</span>
+                            <div class="detail-content">
+                                <span class="detail-label">Goal</span>
+                                <span class="detail-value">Expert Software Engineer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <span class="btn-text">Let's Talk</span>
+                            <span class="btn-icon">💬</span>
+                        </a>
+                        <a href="#projects" class="btn btn-outline">
+                            <span class="btn-text">My Projects</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Skills</span>
+                <h2 class="section-title">Technical Expertise</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="skills-java-focus">
+                <div class="java-badge">
+                    <span class="java-icon">☕</span>
+                    <span class="java-text">Java Dominant</span>
+                    <span class="java-percent">90%</span>
+                </div>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skills-category primary-skills">
+                    <h3 class="category-title">
+                        <span class="category-icon">⚡</span>
+                        Primary Skills
+                    </h3>
+                    <div class="skills-list">
+                        <div class="skill-item" data-skill="95">
+                            <div class="skill-header">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-percent">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="90">
+                            <div class="skill-header">
+                                <span class="skill-name">Spring Boot</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="88">
+                            <div class="skill-header">
+                                <span class="skill-name">Java Full Stack</span>
+                                <span class="skill-percent">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="85">
+                            <div class="skill-header">
+                                <span class="skill-name">OOP</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="82">
+                            <div class="skill-header">
+                                <span class="skill-name">Data Structures & Algorithms</span>
+                                <span class="skill-percent">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="85">
+                            <div class="skill-header">
+                                <span class="skill-name">REST API Development</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category secondary-skills">
+                    <h3 class="category-title">
+                        <span class="category-icon">🔧</span>
+                        Secondary Skills
+                    </h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="skills-category tools-skills">
+                    <h3 class="category-title">
+                        <span class="category-icon">🛠️</span>
+                        Tools & Technologies
+                    </h3>
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <div class="tool-icon">📚</div>
+                            <span class="tool-name">Git</span>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-icon">🐙</div>
+                            <span class="tool-name">GitHub</span>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-icon">🗄️</div>
+                            <span class="tool-name">MySQL</span>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-icon">💻</div>
+                            <span class="tool-name">VS Code</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="coding" id="coding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Coding Profile</span>
+                <h2 class="section-title">Problem Solving</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="coding-content">
+                <div class="coding-platforms">
+                    <div class="platform-card leetcode">
+                        <div class="platform-icon">🏆</div>
+                        <h3 class="platform-name">LeetCode</h3>
+                        <div class="platform-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="150">0</span>
+                                <span class="stat-label">Problems Solved</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="100">0</span>
+                                <span class="stat-label">Easy</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="45">0</span>
+                                <span class="stat-label">Medium</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="5">0</span>
+                                <span class="stat-label">Hard</span>
+                            </div>
+                        </div>
+                        <a href="https://leetcode.com/u/vijayaragavan" target="_blank" rel="noopener noreferrer" class="platform-link">
+                            <span>View Profile</span>
+                            <span class="link-icon">→</span>
+                        </a>
+                    </div>
+                    <div class="platform-card github">
+                        <div class="platform-icon">🐙</div>
+                        <h3 class="platform-name">GitHub</h3>
+                        <div class="platform-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="20">0</span>
+                                <span class="stat-label">Repositories</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="50">0</span>
+                                <span class="stat-label">Stars</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="25">0</span>
+                                <span class="stat-label">Forks</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/vijayaragavan" target="_blank" rel="noopener noreferrer" class="platform-link">
+                            <span>View Profile</span>
+                            <span class="link-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="coding-achievements">
+                    <h3 class="achievements-title">Achievements</h3>
+                    <div class="achievements-list">
+                        <div class="achievement-item">
+                            <span class="achievement-icon">🎯</span>
+                            <span class="achievement-text">Solved 150+ coding problems</span>
+                        </div>
+                        <div class="achievement-item">
+                            <span class="achievement-icon">📊</span>
+                            <span class="achievement-text">Strong in Data Structures & Algorithms</span>
+                        </div>
+                        <div class="achievement-item">
+                            <span class="achievement-icon">🔐</span>
+                            <span class="achievement-text">Implemented secure authentication systems</span>
+                        </div>
+                        <div class="achievement-item">
+                            <span class="achievement-icon">🚀</span>
+                            <span class="achievement-text">Built 5+ Java full-stack projects</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Projects</span>
+                <h2 class="section-title">Featured Work</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid">
+                <article class="project-card" data-tilt>
+                    <div class="project-image">
+                        <div class="project-img-placeholder project-img-instagram">
+                            <span class="project-img-icon">📸</span>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/vijayaragavan/instagram-clone" target="_blank" rel="noopener noreferrer" class="project-btn">
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" class="project-btn">
+                                <span>Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag java">Java</span>
+                            <span class="project-tag">Spring Boot</span>
+                            <span class="project-tag">MySQL</span>
+                        </div>
+                        <h3 class="project-title">Instagram Clone</h3>
+                        <p class="project-description">A full-stack Instagram clone built with Java Spring Boot backend and modern frontend. Features include user authentication, post creation, likes, comments, and following system.</p>
+                        <div class="project-tech">
+                            <span class="tech-item">☕ Java</span>
+                            <span class="tech-item">🌱 Spring Boot</span>
+                            <span class="tech-item">🗄️ MySQL</span>
+                            <span class="tech-item">🔐 JWT</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-tilt>
+                    <div class="project-image">
+                        <div class="project-img-placeholder project-img-ecommerce">
+                            <span class="project-img-icon">🛒</span>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/vijayaragavan/ecommerce" target="_blank" rel="noopener noreferrer" class="project-btn">
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" class="project-btn">
+                                <span>Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag java">Java</span>
+                            <span class="project-tag">Spring Boot</span>
+                            <span class="project-tag">REST API</span>
+                        </div>
+                        <h3 class="project-title">E-Commerce Website</h3>
+                        <p class="project-description">A full-stack e-commerce platform with product management, shopping cart, order processing, and payment integration. Built with Java Spring Boot microservices architecture.</p>
+                        <div class="project-tech">
+                            <span class="tech-item">☕ Java</span>
+                            <span class="tech-item">🌱 Spring Boot</span>
+                            <span class="tech-item">🗄️ MySQL</span>
+                            <span class="tech-item">🔗 REST</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-tilt>
+                    <div class="project-image">
+                        <div class="project-img-placeholder project-img-auth">
+                            <span class="project-img-icon">🔐</span>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/vijayaragavan/auth-system" target="_blank" rel="noopener noreferrer" class="project-btn">
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" class="project-btn">
+                                <span>Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag java">Java</span>
+                            <span class="project-tag">Spring Security</span>
+                            <span class="project-tag">JWT</span>
+                        </div>
+                        <h3 class="project-title">Authentication System</h3>
+                        <p class="project-description">A secure authentication and authorization system with JWT tokens, role-based access control, OAuth2 integration, and encrypted password storage using Spring Security.</p>
+                        <div class="project-tech">
+                            <span class="tech-item">☕ Java</span>
+                            <span class="tech-item">🔒 Spring Security</span>
+                            <span class="tech-item">🎫 JWT</span>
+                            <span class="tech-item">🗄️ MySQL</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-tilt>
+                    <div class="project-image">
+                        <div class="project-img-placeholder project-img-trip">
+                            <span class="project-img-icon">✈️</span>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/vijayaragavan/trip-teller" target="_blank" rel="noopener noreferrer" class="project-btn">
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" class="project-btn">
+                                <span>Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag java">Java</span>
+                            <span class="project-tag">Spring Boot</span>
+                            <span class="project-tag">API</span>
+                        </div>
+                        <h3 class="project-title">Trip Teller</h3>
+                        <p class="project-description">A travel companion app that provides destination information, travel tips, and itinerary planning. Integrates with external APIs for real-time data and recommendations.</p>
+                        <div class="project-tech">
+                            <span class="tech-item">☕ Java</span>
+                            <span class="tech-item">🌱 Spring Boot</span>
+                            <span class="tech-item">🌐 REST API</span>
+                            <span class="tech-item">📡 HTTP</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-tilt>
+                    <div class="project-image">
+                        <div class="project-img-placeholder project-img-translator">
+                            <span class="project-img-icon">🌐</span>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/vijayaragavan/translator" target="_blank" rel="noopener noreferrer" class="project-btn">
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" class="project-btn">
+                                <span>Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag python">Python</span>
+                            <span class="project-tag">GUI</span>
+                            <span class="project-tag">API</span>
+                        </div>
+                        <h3 class="project-title">Simple Translator</h3>
+                        <p class="project-description">A user-friendly language translation application with GUI interface. Supports multiple languages and provides instant translations using Google Translate API.</p>
+                        <div class="project-tech">
+                            <span class="tech-item">🐍 Python</span>
+                            <span class="tech-item">🖥️ Tkinter</span>
+                            <span class="tech-item">🌐 API</span>
+                            <span class="tech-item">🎨 GUI</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="achievements" id="achievements">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Statistics</span>
+                <h2 class="section-title">Achievements</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🚀</div>
+                    <span class="stat-number" data-target="5">0</span>
+                    <span class="stat-label">Projects Completed</span>
+                    <div class="stat-glow"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💻</div>
+                    <span class="stat-number" data-target="150">0</span>
+                    <span class="stat-label">Problems Solved</span>
+                    <div class="stat-glow"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚡</div>
+                    <span class="stat-number" data-target="15">0</span>
+                    <span class="stat-label">Technologies</span>
+                    <div class="stat-glow"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">☕</div>
+                    <span class="stat-number" data-target="90">0</span>
+                    <span class="stat-label">% Java Focus</span>
+                    <div class="stat-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="resume" id="resume">
+        <div class="container">
+            <div class="resume-content">
+                <div class="resume-text">
+                    <span class="section-tag">Resume</span>
+                    <h2 class="section-title">Download My Resume</h2>
+                    <p class="resume-description">
+                        Get a comprehensive overview of my skills, experience, and projects. Feel free to download my resume to learn more about my background.
+                    </p>
+                    <a href="assets/Vijayaragavan_Resume.pdf" class="btn btn-primary btn-large" download>
+                        <span class="btn-text">Download Resume</span>
+                        <span class="btn-icon">↓</span>
+                    </a>
+                </div>
+                <div class="resume-preview">
+                    <div class="resume-card">
+                        <div class="resume-header-preview">
+                            <div class="resume-avatar">
+                                <span>V</span>
+                            </div>
+                            <div class="resume-name-preview">
+                                <h3>Vijayaragavan</h3>
+                                <p>Java Full Stack Developer</p>
+                            </div>
+                        </div>
+                        <div class="resume-details-preview">
+                            <div class="resume-item-preview">
+                                <span>📧</span> vijayaragavan@email.com
+                            </div>
+                            <div class="resume-item-preview">
+                                <span>📱</span> +91 98765 43210
+                            </div>
+                            <div class="resume-item-preview">
+                                <span>💻</span> github.com/vijayaragavan
+                            </div>
+                        </div>
+                        <div class="resume-skills-preview">
+                            <span class="skill-badge">Java</span>
+                            <span class="skill-badge">Spring Boot</span>
+                            <span class="skill-badge">MySQL</span>
+                            <span class="skill-badge">Git</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Contact</span>
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>vijayaragavan@email.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">🐙</div>
+                        <div class="contact-details">
+                            <h3>GitHub</h3>
+                            <p>github.com/vijayaragavan</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">💼</div>
+                        <div class="contact-details">
+                            <h3>LinkedIn</h3>
+                            <p>linkedin.com/in/vijayaragavan</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/vijayaragavan" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <span>🐙</span>
+                        </a>
+                        <a href="https://linkedin.com/in/vijayaragavan" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <span>💼</span>
+                        </a>
+                        <a href="https://leetcode.com/u/vijayaragavan" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <span>🏆</span>
+                        </a>
+                        <a href="https://twitter.com/vijayaragavan" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <span>🐦</span>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your Name">
+                        <span class="form-error" id="name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        <span class="form-error" id="email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Subject">
+                        <span class="form-error" id="subject-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
+                        <span class="form-error" id="message-error"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-icon">🚀</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">V</span>
+                    <span class="logo-sub">ijay</span>
+                </div>
+                <p class="footer-text">Java Full Stack Developer | Building robust solutions with Java</p>
+                <div class="footer-social">
+                    <a href="https://github.com/vijayaragavan" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <span>🐙</span>
+                    </a>
+                    <a href="https://linkedin.com/in/vijayaragavan" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <span>💼</span>
+                    </a>
+                    <a href="https://leetcode.com/u/vijayaragavan" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <span>🏆</span>
+                    </a>
+                </div>
+                <p class="footer-copyright">
+                    © 2024 Vijayaragavan. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+        <div class="footer-glow"></div>
+    </footer>
+
+    <a href="#home" class="back-to-top" id="back-to-top">
+        <span>↑</span>
+    </a>
+
+    <script src="js/script.js"></script>
+    <script src="js/animation.js"></script>
+</body>
+</html>
