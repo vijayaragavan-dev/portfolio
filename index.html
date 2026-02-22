@@ -15,11 +15,14 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
+    <div class="scroll-progress-bar" id="scroll-progress"></div>
+    
     <div class="page-loader">
         <div class="loader-content">
             <div class="loader-logo">
                 <span class="loader-text">V</span>
             </div>
+            <div class="loader-ring"></div>
             <div class="loader-bar">
                 <div class="loader-progress"></div>
             </div>
@@ -28,10 +31,11 @@
     </div>
 
     <canvas id="particle-canvas"></canvas>
+    <div class="cursor-glow" id="cursor-glow"></div>
 
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">
+            <a href="#home" class="nav-logo magnetic-element">
                 <span class="logo-text">V</span>
                 <span class="logo-sub">ijay</span>
             </a>
@@ -46,10 +50,12 @@
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </div>
-            <a href="assets/Vijayaragavan_Resume.pdf" class="btn btn-resume" download>
-                <span class="btn-text">Resume</span>
-                <span class="btn-icon">↓</span>
-            </a>
+            <div class="nav-buttons">
+                <a href="assets/Vijayaragavan_Resume.pdf" class="btn btn-resume magnetic-element" download>
+                    <span class="btn-text">Resume</span>
+                    <span class="btn-icon">↓</span>
+                </a>
+            </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -60,32 +66,37 @@
 
     <section class="hero" id="home">
         <div class="hero-particles" id="hero-particles"></div>
+        <div class="hero-bg-shapes">
+            <div class="hero-shape shape-1"></div>
+            <div class="hero-shape shape-2"></div>
+            <div class="hero-shape shape-3"></div>
+        </div>
         <div class="hero-content">
             <div class="hero-text">
-                <p class="hero-greeting">Hello, I'm</p>
-                <h1 class="hero-name">Vijayaragavan</h1>
-                <div class="hero-title">
+                <p class="hero-greeting reveal-text">Hello, I'm</p>
+                <h1 class="hero-name reveal-text">Vijayaragavan</h1>
+                <div class="hero-title reveal-text">
                     <span class="typing-text">Java Full Stack Developer</span>
                     <span class="typing-cursor">|</span>
                 </div>
-                <div class="hero-roles">
+                <div class="hero-roles reveal-text">
                     <span class="role-item">Java Developer</span>
                     <span class="role-item">Spring Boot Developer</span>
                     <span class="role-item">Backend Engineer</span>
                     <span class="role-item">Problem Solver</span>
                 </div>
-                <div class="hero-description">
+                <div class="hero-description reveal-text">
                     Passionate about building robust backend systems with Java and creating elegant full-stack solutions. Focused on clean code and efficient algorithms.
                 </div>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">
+                <div class="hero-buttons reveal-text">
+                    <a href="#projects" class="btn btn-primary magnetic-element">
                         <span class="btn-text">View Projects</span>
                         <span class="btn-icon">→</span>
                     </a>
-                    <a href="#contact" class="btn btn-secondary">
+                    <a href="#contact" class="btn btn-secondary magnetic-element">
                         <span class="btn-text">Contact Me</span>
                     </a>
-                    <a href="assets/Vijayaragavan_Resume.pdf" class="btn btn-resume-hero" download>
+                    <a href="assets/Vijayaragavan_Resume.pdf" class="btn btn-resume-hero magnetic-element" download>
                         <span class="btn-text">Download Resume</span>
                         <span class="btn-icon">↓</span>
                     </a>
@@ -129,12 +140,12 @@
 
     <section class="about" id="about">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal-section">
                 <span class="section-tag">About Me</span>
                 <h2 class="section-title">Get To Know Me</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="about-content">
+            <div class="about-content reveal-section">
                 <div class="about-image">
                     <div class="about-image-wrapper">
                         <div class="about-img">
@@ -184,11 +195,11 @@
                         </div>
                     </div>
                     <div class="about-buttons">
-                        <a href="#contact" class="btn btn-primary">
+                        <a href="#contact" class="btn btn-primary magnetic-element">
                             <span class="btn-text">Let's Talk</span>
                             <span class="btn-icon">💬</span>
                         </a>
-                        <a href="#projects" class="btn btn-outline">
+                        <a href="#projects" class="btn btn-outline magnetic-element">
                             <span class="btn-text">My Projects</span>
                         </a>
                     </div>
@@ -199,13 +210,13 @@
 
     <section class="skills" id="skills">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal-section">
                 <span class="section-tag">My Skills</span>
                 <h2 class="section-title">Technical Expertise</h2>
                 <div class="section-line"></div>
             </div>
             
-            <div class="skills-java-focus">
+            <div class="skills-java-focus reveal-section">
                 <div class="java-badge">
                     <span class="java-icon">☕</span>
                     <span class="java-text">Java Dominant</span>
@@ -213,7 +224,7 @@
                 </div>
             </div>
 
-            <div class="skills-grid">
+            <div class="skills-grid reveal-section">
                 <div class="skills-category primary-skills">
                     <h3 class="category-title">
                         <span class="category-icon">⚡</span>
@@ -322,12 +333,12 @@
 
     <section class="coding" id="coding">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal-section">
                 <span class="section-tag">Coding Profile</span>
                 <h2 class="section-title">Problem Solving</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="coding-content">
+            <div class="coding-content reveal-section">
                 <div class="coding-platforms">
                     <div class="platform-card leetcode">
                         <div class="platform-icon">🏆</div>
@@ -350,7 +361,7 @@
                                 <span class="stat-label">Hard</span>
                             </div>
                         </div>
-                        <a href="https://leetcode.com/u/vijayaragavan" target="_blank" rel="noopener noreferrer" class="platform-link">
+                        <a href="https://leetcode.com/u/uvijayaragavan-dev/" target="_blank" rel="noopener noreferrer" class="platform-link">
                             <span>View Profile</span>
                             <span class="link-icon">→</span>
                         </a>
@@ -372,7 +383,7 @@
                                 <span class="stat-label">Forks</span>
                             </div>
                         </div>
-                        <a href="https://github.com/vijayaragavan" target="_blank" rel="noopener noreferrer" class="platform-link">
+                        <a href="https://github.com/vijayaragavan-dev" target="_blank" rel="noopener noreferrer" class="platform-link">
                             <span>View Profile</span>
                             <span class="link-icon">→</span>
                         </a>
@@ -405,22 +416,22 @@
 
     <section class="projects" id="projects">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal-section">
                 <span class="section-tag">My Projects</span>
                 <h2 class="section-title">Featured Work</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="projects-grid">
+            <div class="projects-grid reveal-section">
                 <article class="project-card" data-tilt>
                     <div class="project-image">
                         <div class="project-img-placeholder project-img-instagram">
                             <span class="project-img-icon">📸</span>
                         </div>
                         <div class="project-overlay">
-                            <a href="https://github.com/vijayaragavan/instagram-clone" target="_blank" rel="noopener noreferrer" class="project-btn">
+                            <a href="https://github.com/vijayaragavan-dev/InstaFlow" target="_blank" rel="noopener noreferrer" class="project-btn">
                                 <span>GitHub</span>
                             </a>
-                            <a href="#" class="project-btn">
+                            <a href="#" class="project-btn project-btn-disabled">
                                 <span>Live Demo</span>
                             </a>
                         </div>
@@ -448,10 +459,10 @@
                             <span class="project-img-icon">🛒</span>
                         </div>
                         <div class="project-overlay">
-                            <a href="https://github.com/vijayaragavan/ecommerce" target="_blank" rel="noopener noreferrer" class="project-btn">
+                            <a href="https://github.com/vijayaragavan" target="_blank" rel="noopener noreferrer" class="project-btn">
                                 <span>GitHub</span>
                             </a>
-                            <a href="#" class="project-btn">
+                            <a href="#" class="project-btn project-btn-disabled">
                                 <span>Live Demo</span>
                             </a>
                         </div>
@@ -479,10 +490,10 @@
                             <span class="project-img-icon">🔐</span>
                         </div>
                         <div class="project-overlay">
-                            <a href="https://github.com/vijayaragavan/auth-system" target="_blank" rel="noopener noreferrer" class="project-btn">
+                            <a href="https://github.com/vijayaragavan" target="_blank" rel="noopener noreferrer" class="project-btn">
                                 <span>GitHub</span>
                             </a>
-                            <a href="#" class="project-btn">
+                            <a href="#" class="project-btn project-btn-disabled">
                                 <span>Live Demo</span>
                             </a>
                         </div>
@@ -510,10 +521,10 @@
                             <span class="project-img-icon">✈️</span>
                         </div>
                         <div class="project-overlay">
-                            <a href="https://github.com/vijayaragavan/trip-teller" target="_blank" rel="noopener noreferrer" class="project-btn">
+                            <a href="https://github.com/vijayaragavan" target="_blank" rel="noopener noreferrer" class="project-btn">
                                 <span>GitHub</span>
                             </a>
-                            <a href="#" class="project-btn">
+                            <a href="#" class="project-btn project-btn-disabled">
                                 <span>Live Demo</span>
                             </a>
                         </div>
@@ -541,10 +552,10 @@
                             <span class="project-img-icon">🌐</span>
                         </div>
                         <div class="project-overlay">
-                            <a href="https://github.com/vijayaragavan/translator" target="_blank" rel="noopener noreferrer" class="project-btn">
+                            <a href="https://github.com/vijayaragavan-dev/Simple-Language-translator" target="_blank" rel="noopener noreferrer" class="project-btn">
                                 <span>GitHub</span>
                             </a>
-                            <a href="#" class="project-btn">
+                            <a href="#" class="project-btn project-btn-disabled">
                                 <span>Live Demo</span>
                             </a>
                         </div>
@@ -571,12 +582,12 @@
 
     <section class="achievements" id="achievements">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal-section">
                 <span class="section-tag">Statistics</span>
                 <h2 class="section-title">Achievements</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="stats-grid">
+            <div class="stats-grid reveal-section">
                 <div class="stat-card">
                     <div class="stat-icon">🚀</div>
                     <span class="stat-number" data-target="5">0</span>
@@ -607,14 +618,14 @@
 
     <section class="resume" id="resume">
         <div class="container">
-            <div class="resume-content">
+            <div class="resume-content reveal-section">
                 <div class="resume-text">
                     <span class="section-tag">Resume</span>
                     <h2 class="section-title">Download My Resume</h2>
                     <p class="resume-description">
                         Get a comprehensive overview of my skills, experience, and projects. Feel free to download my resume to learn more about my background.
                     </p>
-                    <a href="assets/Vijayaragavan_Resume.pdf" class="btn btn-primary btn-large" download>
+                    <a href="assets/Vijayaragavan_Resume.pdf" class="btn btn-primary btn-large magnetic-element" download>
                         <span class="btn-text">Download Resume</span>
                         <span class="btn-icon">↓</span>
                     </a>
@@ -632,13 +643,13 @@
                         </div>
                         <div class="resume-details-preview">
                             <div class="resume-item-preview">
-                                <span>📧</span> vijayaragavan@email.com
+                                <span>📧</span> uvijayaragavan03@gmail.com
                             </div>
                             <div class="resume-item-preview">
-                                <span>📱</span> +91 98765 43210
+                                <span>📱</span> +91 8667834495
                             </div>
                             <div class="resume-item-preview">
-                                <span>💻</span> github.com/vijayaragavan
+                                <span>💻</span> github.com/vijayaragavan-dev
                             </div>
                         </div>
                         <div class="resume-skills-preview">
@@ -655,53 +666,50 @@
 
     <section class="contact" id="contact">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal-section">
                 <span class="section-tag">Contact</span>
                 <h2 class="section-title">Get In Touch</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="contact-content">
+            <div class="contact-content reveal-section">
                 <div class="contact-info">
                     <div class="contact-card">
                         <div class="contact-icon">📧</div>
                         <div class="contact-details">
                             <h3>Email</h3>
-                            <p>vijayaragavan@email.com</p>
+                            <p>uvijayaragavan03@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-card">
                         <div class="contact-icon">📱</div>
                         <div class="contact-details">
                             <h3>Phone</h3>
-                            <p>+91 98765 43210</p>
+                            <p>+91 8667834495</p>
                         </div>
                     </div>
                     <div class="contact-card">
                         <div class="contact-icon">🐙</div>
                         <div class="contact-details">
                             <h3>GitHub</h3>
-                            <p>github.com/vijayaragavan</p>
+                            <p>vijayaragavan-dev</p>
                         </div>
                     </div>
                     <div class="contact-card">
                         <div class="contact-icon">💼</div>
                         <div class="contact-details">
                             <h3>LinkedIn</h3>
-                            <p>linkedin.com/in/vijayaragavan</p>
+                            <p>vijaya-ragavan-ki10052007</p>
                         </div>
                     </div>
                     <div class="social-links">
-                        <a href="https://github.com/vijayaragavan" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <a href="https://github.com/vijayaragavan-dev" target="_blank" rel="noopener noreferrer" class="social-link magnetic-element">
                             <span>🐙</span>
                         </a>
-                        <a href="https://linkedin.com/in/vijayaragavan" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <a href="https://www.linkedin.com/in/vijaya-ragavan-ki10052007" target="_blank" rel="noopener noreferrer" class="social-link magnetic-element">
                             <span>💼</span>
                         </a>
-                        <a href="https://leetcode.com/u/vijayaragavan" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <a href="https://leetcode.com/u/uvijayaragavan-dev/" target="_blank" rel="noopener noreferrer" class="social-link magnetic-element">
                             <span>🏆</span>
-                        </a>
-                        <a href="https://twitter.com/vijayaragavan" target="_blank" rel="noopener noreferrer" class="social-link">
-                            <span>🐦</span>
                         </a>
                     </div>
                 </div>
@@ -726,7 +734,7 @@
                         <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
                         <span class="form-error" id="message-error"></span>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-large">
+                    <button type="submit" class="btn btn-primary btn-large magnetic-element">
                         <span class="btn-text">Send Message</span>
                         <span class="btn-icon">🚀</span>
                     </button>
@@ -737,20 +745,20 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-content reveal-section">
                 <div class="footer-logo">
                     <span class="logo-text">V</span>
                     <span class="logo-sub">ijay</span>
                 </div>
                 <p class="footer-text">Java Full Stack Developer | Building robust solutions with Java</p>
                 <div class="footer-social">
-                    <a href="https://github.com/vijayaragavan" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <a href="https://github.com/vijayaragavan-dev" target="_blank" rel="noopener noreferrer" class="social-link magnetic-element">
                         <span>🐙</span>
                     </a>
-                    <a href="https://linkedin.com/in/vijayaragavan" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <a href="https://www.linkedin.com/in/vijaya-ragavan-ki10052007" target="_blank" rel="noopener noreferrer" class="social-link magnetic-element">
                         <span>💼</span>
                     </a>
-                    <a href="https://leetcode.com/u/vijayaragavan" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <a href="https://leetcode.com/u/uvijayaragavan-dev/" target="_blank" rel="noopener noreferrer" class="social-link magnetic-element">
                         <span>🏆</span>
                     </a>
                 </div>

@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
     initPageLoader();
     initParticleCanvas();
-    initScrollReveal();
+    initEnhancedScrollReveal();
     initAnimatedCounters();
     initSkillBars();
     initTypingAnimation();
     initMouseParallax();
-    initNavbarScroll();
     initCursorGlow();
     initHoverEffects();
+    initSectionAnimations();
+    initHeroAnimations();
+    initStaggerAnimations();
 });
 
 function initPageLoader() {
@@ -28,7 +30,6 @@ function initPageLoader() {
             percent = 100;
             clearInterval(timer);
         }
-        
         progress.style.width = percent + '%';
         percentage.textContent = Math.floor(percent) + '%';
     }, interval);
@@ -37,6 +38,8 @@ function initPageLoader() {
         setTimeout(() => {
             loader.classList.add('hidden');
             document.body.style.overflow = '';
+            initHeroEntranceAnimations();
+            initEnhancedScrollReveal();
         }, 2200);
     });
 
@@ -47,12 +50,28 @@ function initPageLoader() {
     }, 3000);
 }
 
+function initHeroEntranceAnimations() {
+    const heroText = document.querySelector('.hero-text');
+    const heroVisual = document.querySelector('.hero-visual');
+    
+    if (heroText) {
+        heroText.style.opacity = '1';
+        heroText.style.transform = 'translateX(0)';
+    }
+    
+    if (heroVisual) {
+        heroVisual.style.opacity = '1';
+        heroVisual.style.transform = 'translateX(0)';
+    }
+}
+
 function initParticleCanvas() {
     const canvas = document.getElementById('particle-canvas');
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
     let particles = [];
+    let mouseParticle = null;
 
     function resizeCanvas() {
         canvas.width = window.innerWidth;
@@ -78,13 +97,7 @@ function initParticleCanvas() {
         }
 
         getRandomColor() {
-            const colors = [
-                '0, 212, 255',
-                '123, 44, 191',
-                '255, 0, 110',
-                '248, 152, 28',
-                '109, 179, 63'
-            ];
+            const colors = ['0, 212, 255', '123, 44, 191', '255, 0, 110', '248, 152, 28', '109, 179, 63'];
             return colors[Math.floor(Math.random() * colors.length)];
         }
 
@@ -98,6 +111,18 @@ function initParticleCanvas() {
             this.opacity += (Math.random() - 0.5) * 0.02;
             if (this.opacity < 0.1) this.opacity = 0.1;
             if (this.opacity > 0.6) this.opacity = 0.6;
+            
+            if (mouseParticle) {
+                const dx = mouseParticle.x - this.x;
+                const dy = mouseParticle.y - this.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 150) {
+                    const force = (150 - distance) / 150;
+                    this.speedX += (dx / distance) * force * 0.02;
+                    this.speedY += (dy / distance) * force * 0.02;
+                }
+            }
         }
 
         draw() {
@@ -105,13 +130,17 @@ function initParticleCanvas() {
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
             ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${this.color}, ${this.opacity * 0.3})`;
+            ctx.fill();
         }
     }
 
     function initParticles() {
         particles = [];
         const particleCount = Math.min(100, (canvas.width * canvas.height) / 15000);
-        
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
         }
@@ -139,42 +168,60 @@ function initParticleCanvas() {
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
         particles.forEach(particle => {
             particle.update();
             particle.draw();
         });
-        
         drawConnections();
-        
         requestAnimationFrame(animate);
     }
+
+    document.addEventListener('mousemove', (e) => {
+        mouseParticle = { x: e.clientX, y: e.clientY };
+    });
+
+    document.addEventListener('mouseleave', () => {
+        mouseParticle = null;
+    });
 
     initParticles();
     animate();
 }
 
-function initScrollReveal() {
-    const revealElements = document.querySelectorAll('.section-header, .about-content, .about-image, .about-text, .skills-grid, .coding-content, .projects-grid, .stats-grid, .resume-content, .resume-text, .resume-preview, .contact-content, .contact-info, .contact-form, .footer-content');
+function initEnhancedScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal-section, .section-header, .about-content, .about-image, .about-text, .skills-grid, .coding-content, .projects-grid, .stats-grid, .resume-content, .contact-content, .contact-info, .contact-form, .footer-content');
     
     if (!revealElements.length) return;
 
-    const revealOnScroll = () => {
-        revealElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 200;
-            
-            if (elementTop < window.innerHeight - elementVisible) {
-                element.classList.add('visible');
-            }
-        });
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -100px 0px',
+        threshold: 0.1
     };
 
-    window.addEventListener('scroll', revealOnScroll, { passive: true });
-    
-    setTimeout(revealOnScroll, 100);
-    
-    window.addEventListener('load', revealOnScroll);
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('reveal-active');
+                }, index * 50);
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
+
+    window.addEventListener('scroll', () => {
+        revealElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            if (elementTop < window.innerHeight - 100) {
+                element.classList.add('reveal-active');
+            }
+        });
+    }, { passive: true });
 }
 
 function initAnimatedCounters() {
@@ -303,7 +350,6 @@ function initMouseParallax() {
     if (!heroSection) return;
 
     const profileVisual = document.querySelector('.hero-visual');
-    const heroText = document.querySelector('.hero-text');
     
     heroSection.addEventListener('mousemove', (e) => {
         if (profileVisual) {
@@ -320,40 +366,10 @@ function initMouseParallax() {
     });
 }
 
-function initNavbarScroll() {
-    const navbar = document.getElementById('navbar');
-    if (!navbar) return;
-
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    }, { passive: true });
-}
-
 function initCursorGlow() {
-    let cursorGlow = document.getElementById('cursor-glow');
+    const cursorGlow = document.getElementById('cursor-glow');
     
-    if (!cursorGlow) {
-        cursorGlow = document.createElement('div');
-        cursorGlow.id = 'cursor-glow';
-        cursorGlow.style.cssText = `
-            position: fixed;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            transition: opacity 0.3s;
-        `;
-        document.body.appendChild(cursorGlow);
-    }
+    if (!cursorGlow) return;
     
     document.addEventListener('mousemove', (e) => {
         cursorGlow.style.left = e.clientX + 'px';
@@ -362,7 +378,7 @@ function initCursorGlow() {
 }
 
 function initHoverEffects() {
-    const glowElements = document.querySelectorAll('.skill-item, .project-card, .stat-card, .platform-card');
+    const glowElements = document.querySelectorAll('.skill-item, .stat-card, .platform-card');
     glowElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
             el.style.zIndex = '10';
@@ -370,5 +386,72 @@ function initHoverEffects() {
         el.addEventListener('mouseleave', () => {
             el.style.zIndex = '1';
         });
+    });
+}
+
+function initSectionAnimations() {
+    const sections = document.querySelectorAll('section');
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('section-animated');
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+}
+
+function initHeroAnimations() {
+    const heroShapes = document.querySelectorAll('.hero-shape');
+    
+    heroShapes.forEach((shape, index) => {
+        shape.style.animationDelay = `${index * 2}s`;
+    });
+    
+    const profileContainer = document.querySelector('.profile-container');
+    if (profileContainer) {
+        profileContainer.style.opacity = '1';
+        profileContainer.style.transform = 'scale(1)';
+    }
+}
+
+function initStaggerAnimations() {
+    const staggerGroups = document.querySelectorAll('.skills-list, .skills-tags, .tools-grid, .projects-grid, .stats-grid, .platform-stats, .achievements-list, .about-details, .project-tags, .project-tech, .resume-skills-preview');
+    
+    staggerGroups.forEach((group, groupIndex) => {
+        const items = group.querySelectorAll(':scope > *');
+        items.forEach((item, itemIndex) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = `opacity 0.5s ease ${itemIndex * 0.1}s, transform 0.5s ease ${itemIndex * 0.1}s`;
+        });
+    });
+
+    const staggerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const items = entry.target.querySelectorAll(':scope > *');
+                items.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, index * 80);
+                });
+                staggerObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    staggerGroups.forEach(group => {
+        staggerObserver.observe(group);
     });
 }
