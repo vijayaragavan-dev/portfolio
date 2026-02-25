@@ -39,6 +39,20 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-family);
+    background: var(--dark-bg);
+    color: var(--text-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
 }
 
 body {
@@ -151,7 +165,7 @@ img {
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: none;
     position: relative;
     overflow: hidden;
@@ -164,8 +178,8 @@ img {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: var(--transition);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn:hover::before {
@@ -179,8 +193,8 @@ img {
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 50px rgba(0, 212, 255, 0.6);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.6), 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .btn-secondary {
@@ -355,16 +369,17 @@ img {
     width: 100%;
     padding: 15px 0;
     z-index: 1000;
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     background: transparent;
 }
 
 .navbar.scrolled {
-    background: rgba(10, 10, 15, 0.9);
+    background: rgba(10, 10, 15, 0.92);
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     padding: 10px 0;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 212, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
 }
 
 .nav-container {
@@ -1422,10 +1437,30 @@ img {
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 80px rgba(0, 212, 255, 0.2), 0 10px 30px rgba(0, 0, 0, 0.4);
     border-color: var(--primary);
 }
+
+.project-card {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.4s ease,
+                border-color 0.3s ease;
+}
+
+.project-card.reveal-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.project-card:nth-child(1) { transition-delay: 0.1s; }
+.project-card:nth-child(2) { transition-delay: 0.2s; }
+.project-card:nth-child(3) { transition-delay: 0.3s; }
+.project-card:nth-child(4) { transition-delay: 0.4s; }
+.project-card:nth-child(5) { transition-delay: 0.5s; }
 
 .project-image {
     position: relative;
@@ -1439,11 +1474,11 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: var(--transition);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-card:hover .project-img-placeholder {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 .project-img-icon {
@@ -1483,8 +1518,25 @@ img {
     border-radius: var(--border-radius);
     font-size: 14px;
     font-weight: 600;
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateY(20px);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.project-btn:hover::before {
+    left: 100%;
 }
 
 .project-card:hover .project-btn {
@@ -1519,18 +1571,22 @@ img {
 }
 
 .project-tag {
-    padding: 5px 12px;
+    padding: 6px 14px;
     background: var(--dark-bg-tertiary);
     border-radius: 50px;
     font-size: 11px;
     font-weight: 600;
     color: var(--text-secondary);
     text-transform: uppercase;
-    transition: var(--transition);
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
 }
 
 .project-tag:hover {
     color: var(--primary);
+    border-color: rgba(0, 212, 255, 0.3);
+    transform: translateY(-2px);
 }
 
 .project-tag.java {
@@ -1548,18 +1604,25 @@ img {
     font-weight: 700;
     margin-bottom: 12px;
     color: var(--text-primary);
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
 }
 
 .project-card:hover .project-title {
     color: var(--primary);
+    text-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
 }
 
 .project-description {
     font-size: 14px;
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.75;
     margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.project-card:hover .project-description {
+    color: var(--text-primary);
 }
 
 .project-tech {
@@ -1571,15 +1634,18 @@ img {
 .tech-item {
     font-size: 12px;
     color: var(--text-muted);
-    padding: 5px 10px;
+    padding: 6px 12px;
     background: var(--dark-bg-tertiary);
-    border-radius: 5px;
-    transition: var(--transition);
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
 }
 
 .tech-item:hover {
     color: var(--primary);
     background: rgba(0, 212, 255, 0.1);
+    border-color: rgba(0, 212, 255, 0.3);
+    transform: translateY(-2px);
 }
 
 .project-img-instagram {
@@ -1600,6 +1666,44 @@ img {
 
 .project-img-translator {
     background: linear-gradient(135deg, #ffe000 0%, #799f0c 100%);
+}
+
+.project-img-fraud {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+}
+
+.github-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary) !important;
+    color: var(--dark-bg) !important;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(20px);
+}
+
+.github-btn:hover {
+    background: var(--text-primary) !important;
+    transform: translateY(0) scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+.project-card:hover .github-btn {
+    transform: translateY(0);
+}
+
+.github-icon {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+.github-btn:hover .github-icon {
+    transform: rotate(15deg) scale(1.1);
 }
 
 .achievements {

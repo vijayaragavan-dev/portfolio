@@ -214,6 +214,30 @@ function initEnhancedScrollReveal() {
         revealObserver.observe(element);
     });
 
+    const projectCards = document.querySelectorAll('.project-card');
+    if (projectCards.length) {
+        const cardObserverOptions = {
+            root: null,
+            rootMargin: '0px 0px -50px 0px',
+            threshold: 0.1
+        };
+        
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('reveal-active');
+                    }, index * 150);
+                    cardObserver.unobserve(entry.target);
+                }
+            });
+        }, cardObserverOptions);
+
+        projectCards.forEach(card => {
+            cardObserver.observe(card);
+        });
+    }
+
     window.addEventListener('scroll', () => {
         revealElements.forEach(element => {
             const elementTop = element.getBoundingClientRect().top;
